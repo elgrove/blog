@@ -25,9 +25,9 @@ social:
   
 permalink: pretty
 
-disqus:
-  name: "your disqus username" # required
-  noscript: "Please enable JavaScript to view the comments powered by Disqus." # optional
+# disqus:
+#   name: "your disqus username" # required
+#   noscript: "Please enable JavaScript to view the comments powered by Disqus." # optional
 
 baseurl:             ""
 
@@ -47,7 +47,6 @@ plugins:
   - jekyll-gist
   - jekyll-seo-tag
   - jekyll-sitemap
-  - disqus-for-jekyll
 
 collections:
   pages:
