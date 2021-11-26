@@ -7,7 +7,7 @@ summary:
 
 Download with Brew
 
-```
+```bash
 brew install ruby rbenv
 rbenv init
 ```
