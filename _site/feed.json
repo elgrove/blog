@@ -17,115 +17,19 @@
 "items": [
     
         {
-            "id": "http://localhost:4000/2017/05/12/lorem-ipsum",
-            "title": "Remaining essentially unchanged",
-            "summary": "Lorem Ipsum is simply dummy text",
-            "content_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..♫ { background: #222; color: #FFF; } .ಠ_ಠ { background: #ccc; color: #fff; }Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.input[type=\"text\"]:focus { outline: none; }Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "content_html": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><div class=\"language-css highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"o\">.</span><span class=\"err\">♫</span> <span class=\"p\">{</span> <span class=\"nl\">background</span><span class=\"p\">:</span> <span class=\"m\">#222</span><span class=\"p\">;</span> <span class=\"nl\">color</span><span class=\"p\">:</span> <span class=\"m\">#FFF</span><span class=\"p\">;</span> <span class=\"p\">}</span> <span class=\"nc\">.ಠ_ಠ</span> <span class=\"p\">{</span> <span class=\"nl\">background</span><span class=\"p\">:</span> <span class=\"m\">#ccc</span><span class=\"p\">;</span> <span class=\"nl\">color</span><span class=\"p\">:</span> <span class=\"m\">#fff</span><span class=\"p\">;</span> <span class=\"p\">}</span></code></pre></div></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><div class=\"language-css highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"nt\">input</span><span class=\"o\">[</span><span class=\"nt\">type</span><span class=\"o\">=</span><span class=\"s1\">\"text\"</span><span class=\"o\">]</span><span class=\"nd\">:focus</span> <span class=\"p\">{</span> <span class=\"nl\">outline</span><span class=\"p\">:</span> <span class=\"nb\">none</span><span class=\"p\">;</span> <span class=\"p\">}</span></code></pre></div></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-            "url": "http://localhost:4000/2017/05/12/lorem-ipsum",
+            "id": "http://localhost:4000/2020/06/01/windows-10-vm",
+            "title": "Setting up a Windows 10 VM on Proxmox",
+            "summary": null,
+            "content_text": "Proxmox makes it very easy to set up Linux VMs, but to do the same for Windows 10, unfortunately you have to jump through a few hoops.Firstly, procure your Windows 10 ISO. I prefer the LTSC channel, but it doesn’t have the Windows Subsystem for Linux version 2 yet, which is a damn shame. LTSC does away with all the commercial nonsense that Microsoft have added to the Home and Pro versions of Windows 10, like Candy Crush for example. If you want to be able to use WSL2, you will have to obtain an ISO for Windows 10 Pro.Once you’ve uploaded the ISO to Proxmox, you can begin creating a new VM.In the first screen, name your VM and give it a unique numerical ID as usual. In the OS tab, select the Windows ISO that you uploaded and change the guest OS type to ‘Windows 10/2016/2019’Moving on to the hard disk tab, change the bus to SCSI and set VirtIO SCSI as the controller. For the cache, Proxmox recommends using ‘write back’ for best performance, but the default, no cache, is safer, with the trade-off that it is slower.No changes needed in the CPU tab, though I would recommend assigning at least 2 virtual CPUs to Windows. Same in the memory tab, just assign your memory size as usual. Lastly, select ‘VirtIO (paravirtualized)’ as the network device. Confirm the setup of the VM and make sure that ‘start after creation’ is unticked.Before booting up the VM, you will need to add another disk to the VM that contains the VirtIO drivers needed for Windows to recognise the virtual drives, memory and network device. I usually grab the disk image containing these drivers from the GitHub page here: https://github.com/virtio-win. Upload this ISO to your Proxmox server, locate the Windows VM you just created and add the ISO as another CD/DVD drive just as the Windows 10 ISO is.Boot up the Windows VM and open the noVNC console window. If you’ve ever installed Windows 10 before you will be familiar with this particular shade of purple. Click through to the page where you need to select the drive to install Windows 10 on, and click ‘load driver’. Unfortunately you are going to have to do this one driver at a time. Firstly, the hard disk, browse to the VirtIO ISO and navigate to the folder vioscsi/w10/amd64 (assuming you are installing on an x86 box) and click confirm. Windows should have recognised your ‘Red Hat VirtIO SCSI passthrough controller’. The virtual hard drive should now appear, but don’t install on it yet. Next, for the network device, navigate to NetKVM/w10/amd64 and click confirm as before. Lastly, for the memory device, navigate to Balloon/w10/amd64 and proceed.Now all the relevant drivers have been installed you can go ahead with the install to the VM’s virtual hard drive. Everything else from this point is the usual process of doing a fresh Windows 10 install, including opting out of all the telemetry and other rubbish!",
+            "content_html": "<p>Proxmox makes it very easy to set up Linux VMs, but to do the same for Windows 10, unfortunately you have to jump through a few hoops.</p><p>Firstly, procure your Windows 10 ISO. I prefer the LTSC channel, but it doesn’t have the Windows Subsystem for Linux version 2 yet, which is a damn shame. LTSC does away with all the commercial nonsense that Microsoft have added to the Home and Pro versions of Windows 10, like Candy Crush for example. If you want to be able to use WSL2, you will have to obtain an ISO for Windows 10 Pro.</p><p>Once you’ve uploaded the ISO to Proxmox, you can begin creating a new VM.</p><p>In the first screen, name your VM and give it a unique numerical ID as usual. In the OS tab, select the Windows ISO that you uploaded and change the guest OS type to ‘Windows 10/2016/2019’</p><p>Moving on to the hard disk tab, change the bus to SCSI and set VirtIO SCSI as the controller. For the cache, Proxmox recommends using ‘write back’ for best performance, but the default, no cache, is safer, with the trade-off that it is slower.</p><p>No changes needed in the CPU tab, though I would recommend assigning at least 2 virtual CPUs to Windows. Same in the memory tab, just assign your memory size as usual. Lastly, select ‘VirtIO (paravirtualized)’ as the network device. Confirm the setup of the VM and make sure that ‘start after creation’ is unticked.</p><p>Before booting up the VM, you will need to add another disk to the VM that contains the VirtIO drivers needed for Windows to recognise the virtual drives, memory and network device. I usually grab the disk image containing these drivers from the GitHub page here: https://github.com/virtio-win. Upload this ISO to your Proxmox server, locate the Windows VM you just created and add the ISO as another CD/DVD drive just as the Windows 10 ISO is.</p><p>Boot up the Windows VM and open the noVNC console window. If you’ve ever installed Windows 10 before you will be familiar with this particular shade of purple. Click through to the page where you need to select the drive to install Windows 10 on, and click ‘load driver’. Unfortunately you are going to have to do this one driver at a time. Firstly, the hard disk, browse to the VirtIO ISO and navigate to the folder vioscsi/w10/amd64 (assuming you are installing on an x86 box) and click confirm. Windows should have recognised your ‘Red Hat VirtIO SCSI passthrough controller’. The virtual hard drive should now appear, but don’t install on it yet. Next, for the network device, navigate to NetKVM/w10/amd64 and click confirm as before. Lastly, for the memory device, navigate to Balloon/w10/amd64 and proceed.</p><p>Now all the relevant drivers have been installed you can go ahead with the install to the VM’s virtual hard drive. Everything else from this point is the usual process of doing a fresh Windows 10 install, including opting out of all the telemetry and other rubbish!</p>",
+            "url": "http://localhost:4000/2020/06/01/windows-10-vm",
             
             
             
             
             
-            "date_published": "2017-05-12T00:00:00+01:00",
-            "date_modified": "2017-05-12T00:00:00+01:00",
-            
-                "author":  {
-                "name": "Colorie",
-                "url": null,
-                "avatar": null
-                }
-                
-            
-        },
-    
-        {
-            "id": "http://localhost:4000/2016/07/31/lorem-ipsum",
-            "title": "Desktop publishing software",
-            "summary": "Lorem Ipsum is simply dummy text",
-            "content_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "content_html": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-            "url": "http://localhost:4000/2016/07/31/lorem-ipsum",
-            
-            
-            
-            
-            
-            "date_published": "2016-07-31T00:00:00+01:00",
-            "date_modified": "2016-07-31T00:00:00+01:00",
-            
-                "author":  {
-                "name": "Colorie",
-                "url": null,
-                "avatar": null
-                }
-                
-            
-        },
-    
-        {
-            "id": "http://localhost:4000/2015/07/31/lorem-ipsum",
-            "title": "Printing and typesetting industry",
-            "summary": "Lorem Ipsum is simply dummy text",
-            "content_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "content_html": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-            "url": "http://localhost:4000/2015/07/31/lorem-ipsum",
-            
-            
-            
-            
-            
-            "date_published": "2015-07-31T00:00:00+01:00",
-            "date_modified": "2015-07-31T00:00:00+01:00",
-            
-                "author":  {
-                "name": "Colorie",
-                "url": null,
-                "avatar": null
-                }
-                
-            
-        },
-    
-        {
-            "id": "http://localhost:4000/2014/05/12/lorem-ipsum",
-            "title": "Simply dummy text",
-            "summary": "Lorem Ipsum is simply dummy text",
-            "content_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..♫ { background: #222; color: #FFF; } .ಠ_ಠ { background: #ccc; color: #fff; }Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.input[type=\"text\"]:focus { outline: none; }Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "content_html": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><div class=\"language-css highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"o\">.</span><span class=\"err\">♫</span> <span class=\"p\">{</span> <span class=\"nl\">background</span><span class=\"p\">:</span> <span class=\"m\">#222</span><span class=\"p\">;</span> <span class=\"nl\">color</span><span class=\"p\">:</span> <span class=\"m\">#FFF</span><span class=\"p\">;</span> <span class=\"p\">}</span> <span class=\"nc\">.ಠ_ಠ</span> <span class=\"p\">{</span> <span class=\"nl\">background</span><span class=\"p\">:</span> <span class=\"m\">#ccc</span><span class=\"p\">;</span> <span class=\"nl\">color</span><span class=\"p\">:</span> <span class=\"m\">#fff</span><span class=\"p\">;</span> <span class=\"p\">}</span></code></pre></div></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><div class=\"language-css highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"nt\">input</span><span class=\"o\">[</span><span class=\"nt\">type</span><span class=\"o\">=</span><span class=\"s1\">\"text\"</span><span class=\"o\">]</span><span class=\"nd\">:focus</span> <span class=\"p\">{</span> <span class=\"nl\">outline</span><span class=\"p\">:</span> <span class=\"nb\">none</span><span class=\"p\">;</span> <span class=\"p\">}</span></code></pre></div></div><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-            "url": "http://localhost:4000/2014/05/12/lorem-ipsum",
-            
-            
-            
-            
-            
-            "date_published": "2014-05-12T00:00:00+01:00",
-            "date_modified": "2014-05-12T00:00:00+01:00",
-            
-                "author":  {
-                "name": "Colorie",
-                "url": null,
-                "avatar": null
-                }
-                
-            
-        },
-    
-        {
-            "id": "http://localhost:4000/2012/07/31/lorem-ipsum",
-            "title": "Lorem Ipsum",
-            "summary": "Lorem Ipsum is simply dummy text",
-            "content_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "content_html": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
-            "url": "http://localhost:4000/2012/07/31/lorem-ipsum",
-            
-            
-            
-            
-            
-            "date_published": "2012-07-31T00:00:00+01:00",
-            "date_modified": "2012-07-31T00:00:00+01:00",
+            "date_published": "2020-06-01T00:00:00+01:00",
+            "date_modified": "2020-06-01T00:00:00+01:00",
             
                 "author":  {
                 "name": "Colorie",

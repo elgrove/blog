@@ -45,7 +45,6 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-gist
-  - jekyll-seo-tag
   - jekyll-sitemap
 
 collections:
