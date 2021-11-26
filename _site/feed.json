@@ -17,6 +17,98 @@
 "items": [
     
         {
+            "id": "http://localhost:4000/2020/12/01/pyenv",
+            "title": "Trying out Pyenv for Python version management",
+            "summary": null,
+            "content_text": "https://github.com/pyenv/pyenv#installationhttps://github.com/pyenv/pyenv-installerhttps://github.com/momo-lab/pyenv-install-latestsudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \\libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \\libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devcurl https://pyenv.run | bashecho -e 'if shopt -q login_shell; then' \\      '\\n  export PYENV_ROOT=\"$HOME/.pyenv\"' \\      '\\n  export PATH=\"$PYENV_ROOT/bin:$PATH\"' \\      '\\n eval \"$(pyenv init --path)\"' \\      '\\nfi' &gt;&gt; ~/.bashrcecho -e 'if [ -z \"$BASH_VERSION\" ]; then'\\      '\\n  export PYENV_ROOT=\"$HOME/.pyenv\"'\\      '\\n  export PATH=\"$PYENV_ROOT/bin:$PATH\"'\\      '\\n  eval \"$(pyenv init --path)\"'\\      '\\nfi' &gt;&gt;~/.profilehttps://github.com/pyenv/pyenv/wiki#suggested-build-environmentsudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \\libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \\libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-devpyenv install-latestpyenv versionspyenv global 3.9.5",
+            "content_html": "<p>https://github.com/pyenv/pyenv#installation</p><p>https://github.com/pyenv/pyenv-installer</p><p>https://github.com/momo-lab/pyenv-install-latest</p><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \\libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \\libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>curl https://pyenv.run | bash</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>echo -e 'if shopt -q login_shell; then' \\      '\\n  export PYENV_ROOT=\"$HOME/.pyenv\"' \\      '\\n  export PATH=\"$PYENV_ROOT/bin:$PATH\"' \\      '\\n eval \"$(pyenv init --path)\"' \\      '\\nfi' &gt;&gt; ~/.bashrc</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>echo -e 'if [ -z \"$BASH_VERSION\" ]; then'\\      '\\n  export PYENV_ROOT=\"$HOME/.pyenv\"'\\      '\\n  export PATH=\"$PYENV_ROOT/bin:$PATH\"'\\      '\\n  eval \"$(pyenv init --path)\"'\\      '\\nfi' &gt;&gt;~/.profile</code></pre></div></div><p>https://github.com/pyenv/pyenv/wiki#suggested-build-environment</p><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \\libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \\libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>pyenv install-latest</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>pyenv versions</code></pre></div></div><div class=\"language-plaintext highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>pyenv global 3.9.5</code></pre></div></div>",
+            "url": "http://localhost:4000/2020/12/01/pyenv",
+            
+            
+            
+            
+            "date_published": "2020-12-01T00:00:00+00:00",
+            "date_modified": "2020-12-01T00:00:00+00:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
+            "id": "http://localhost:4000/2020/11/01/scp",
+            "title": "SSH file transfer with scp",
+            "summary": null,
+            "content_text": "scp or secure copy is a *nix utility for copying files over an SSH connection. The commands are pretty simple and I haven’t needed to use any switches yet. Classic unix, doing one job and doing it very well.To copy a local file to a remote machine:scp /path/to/file username@server:/path/to/destinationAnd to copy a remote file to a local directory:scp username@server:/path/to/file /path/to/destination",
+            "content_html": "<p>scp or secure copy is a *nix utility for copying files over an SSH connection. The commands are pretty simple and I haven’t needed to use any switches yet. Classic unix, doing one job and doing it very well.</p><p>To copy a local file to a remote machine:</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>scp /path/to/file username@server:/path/to/destination</code></pre></div></div><p>And to copy a remote file to a local directory:</p><div class=\"language-bash highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>scp username@server:/path/to/file /path/to/destination</code></pre></div></div>",
+            "url": "http://localhost:4000/2020/11/01/scp",
+            
+            
+            
+            
+            "date_published": "2020-11-01T00:00:00+00:00",
+            "date_modified": "2020-11-01T00:00:00+00:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
+            "id": "http://localhost:4000/2020/09/04/python-workflow",
+            "title": "Upgrading my Python workflow with black, flake8 and pre-commit",
+            "summary": null,
+            "content_text": "# installpip install pre-commit# generate sample config yamlpre-commit sample-config &gt; .pre-commit-config.yaml# install blackpipenv install black --pre --dev# add to precommit config-   repo: https://github.com/psf/black    rev: 21.6b0    hooks:      - id: black      # install blackpipenv install flake8 --dev# decide that flake8 is shit and abandon it",
+            "content_html": "<div class=\"language-python highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"c1\"># install</span><span class=\"n\">pip</span> <span class=\"n\">install</span> <span class=\"n\">pre</span><span class=\"o\">-</span><span class=\"n\">commit</span><span class=\"c1\"># generate sample config yaml</span><span class=\"n\">pre</span><span class=\"o\">-</span><span class=\"n\">commit</span> <span class=\"n\">sample</span><span class=\"o\">-</span><span class=\"n\">config</span> <span class=\"o\">&gt;</span> <span class=\"p\">.</span><span class=\"n\">pre</span><span class=\"o\">-</span><span class=\"n\">commit</span><span class=\"o\">-</span><span class=\"n\">config</span><span class=\"p\">.</span><span class=\"n\">yaml</span><span class=\"c1\"># install black</span><span class=\"n\">pipenv</span> <span class=\"n\">install</span> <span class=\"n\">black</span> <span class=\"o\">--</span><span class=\"n\">pre</span> <span class=\"o\">--</span><span class=\"n\">dev</span><span class=\"c1\"># add to precommit config</span><span class=\"o\">-</span>   <span class=\"n\">repo</span><span class=\"p\">:</span> <span class=\"n\">https</span><span class=\"p\">:</span><span class=\"o\">//</span><span class=\"n\">github</span><span class=\"p\">.</span><span class=\"n\">com</span><span class=\"o\">/</span><span class=\"n\">psf</span><span class=\"o\">/</span><span class=\"n\">black</span>    <span class=\"n\">rev</span><span class=\"p\">:</span> <span class=\"mf\">21.6</span><span class=\"n\">b0</span>    <span class=\"n\">hooks</span><span class=\"p\">:</span>      <span class=\"o\">-</span> <span class=\"nb\">id</span><span class=\"p\">:</span> <span class=\"n\">black</span>      <span class=\"c1\"># install black</span><span class=\"n\">pipenv</span> <span class=\"n\">install</span> <span class=\"n\">flake8</span> <span class=\"o\">--</span><span class=\"n\">dev</span><span class=\"c1\"># decide that flake8 is shit and abandon it</span></code></pre></div></div>",
+            "url": "http://localhost:4000/2020/09/04/python-workflow",
+            
+            
+            
+            
+            "date_published": "2020-09-04T00:00:00+01:00",
+            "date_modified": "2020-09-04T00:00:00+01:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
+            "id": "http://localhost:4000/2020/07/08/self-hosted-notes",
+            "title": "Self-hosting a notes app on my own subdomain",
+            "summary": null,
+            "content_text": "First I bought my domain from Google Domains for £10 a year, then signed up for Cloudflare free tier and set up DNS rules for root and WWWSet up docker-compose on LinodeSet up SWAG container from LSIO, with BookstackUn-grey out proxy confs for the site required, most lsio containers are already in there. Change the subdomain where required.Set up DNS rules for notes subdomain to the root IP address, the reverse proxy will catch the request to the root IP and forward it to the subdomain---version: \"2.1\"services:  swag:    image: ghcr.io/linuxserver/swag    container_name: swag    cap_add:      - NET_ADMIN    environment:      - PUID=1000      - PGID=1000      - TZ=Europe/London      - URL=elgrove.xyz      - SUBDOMAINS=www,notes      - VALIDATION=dns      - DNSPLUGIN=cloudflare      - EMAIL=aaronlovegrove@protonmail.com    volumes:      - ./config:/config    ports:      - 443:443      - 80:80    restart: unless-stopped  bookstack:    image: ghcr.io/linuxserver/bookstack    container_name: bookstack    environment:      - PUID=1000      - PGID=1000      - APP_URL=https://notes.elgrove.xyz      - DB_HOST=bookstack_db      - DB_USER=bookstack      - DB_PASS=1111      - DB_DATABASE=bookstackapp    volumes:      - ./bookstack:/config    ports:      - 6875:80    restart: unless-stopped    depends_on:      - bookstack_db  bookstack_db:    image: ghcr.io/linuxserver/mariadb    container_name: bookstack_db    environment:      - PUID=1000      - PGID=1000      - MYSQL_ROOT_PASSWORD=1111      - TZ=Europe/London      - MYSQL_DATABASE=bookstackapp      - MYSQL_USER=bookstack      - MYSQL_PASSWORD=1111    volumes:      - ./bookstack/db:/config    restart: unless-stopped",
+            "content_html": "<p>First I bought my domain from Google Domains for £10 a year, then signed up for Cloudflare free tier and set up DNS rules for root and WWW</p><p>Set up docker-compose on Linode</p><p>Set up SWAG container from LSIO, with Bookstack</p><p>Un-grey out proxy confs for the site required, most lsio containers are already in there. Change the subdomain where required.</p><p>Set up DNS rules for notes subdomain to the root IP address, the reverse proxy will catch the request to the root IP and forward it to the subdomain</p><div class=\"language-yaml highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"nn\">---</span><span class=\"na\">version</span><span class=\"pi\">:</span> <span class=\"s2\">\"</span><span class=\"s\">2.1\"</span><span class=\"na\">services</span><span class=\"pi\">:</span>  <span class=\"na\">swag</span><span class=\"pi\">:</span>    <span class=\"na\">image</span><span class=\"pi\">:</span> <span class=\"s\">ghcr.io/linuxserver/swag</span>    <span class=\"na\">container_name</span><span class=\"pi\">:</span> <span class=\"s\">swag</span>    <span class=\"na\">cap_add</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">NET_ADMIN</span>    <span class=\"na\">environment</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">PUID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">PGID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">TZ=Europe/London</span>      <span class=\"pi\">-</span> <span class=\"s\">URL=elgrove.xyz</span>      <span class=\"pi\">-</span> <span class=\"s\">SUBDOMAINS=www,notes</span>      <span class=\"pi\">-</span> <span class=\"s\">VALIDATION=dns</span>      <span class=\"pi\">-</span> <span class=\"s\">DNSPLUGIN=cloudflare</span>      <span class=\"pi\">-</span> <span class=\"s\">EMAIL=aaronlovegrove@protonmail.com</span>    <span class=\"na\">volumes</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">./config:/config</span>    <span class=\"na\">ports</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">443:443</span>      <span class=\"pi\">-</span> <span class=\"s\">80:80</span>    <span class=\"na\">restart</span><span class=\"pi\">:</span> <span class=\"s\">unless-stopped</span>  <span class=\"na\">bookstack</span><span class=\"pi\">:</span>    <span class=\"na\">image</span><span class=\"pi\">:</span> <span class=\"s\">ghcr.io/linuxserver/bookstack</span>    <span class=\"na\">container_name</span><span class=\"pi\">:</span> <span class=\"s\">bookstack</span>    <span class=\"na\">environment</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">PUID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">PGID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">APP_URL=https://notes.elgrove.xyz</span>      <span class=\"pi\">-</span> <span class=\"s\">DB_HOST=bookstack_db</span>      <span class=\"pi\">-</span> <span class=\"s\">DB_USER=bookstack</span>      <span class=\"pi\">-</span> <span class=\"s\">DB_PASS=1111</span>      <span class=\"pi\">-</span> <span class=\"s\">DB_DATABASE=bookstackapp</span>    <span class=\"na\">volumes</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">./bookstack:/config</span>    <span class=\"na\">ports</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">6875:80</span>    <span class=\"na\">restart</span><span class=\"pi\">:</span> <span class=\"s\">unless-stopped</span>    <span class=\"na\">depends_on</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">bookstack_db</span>  <span class=\"na\">bookstack_db</span><span class=\"pi\">:</span>    <span class=\"na\">image</span><span class=\"pi\">:</span> <span class=\"s\">ghcr.io/linuxserver/mariadb</span>    <span class=\"na\">container_name</span><span class=\"pi\">:</span> <span class=\"s\">bookstack_db</span>    <span class=\"na\">environment</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">PUID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">PGID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">MYSQL_ROOT_PASSWORD=1111</span>      <span class=\"pi\">-</span> <span class=\"s\">TZ=Europe/London</span>      <span class=\"pi\">-</span> <span class=\"s\">MYSQL_DATABASE=bookstackapp</span>      <span class=\"pi\">-</span> <span class=\"s\">MYSQL_USER=bookstack</span>      <span class=\"pi\">-</span> <span class=\"s\">MYSQL_PASSWORD=1111</span>    <span class=\"na\">volumes</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">./bookstack/db:/config</span>    <span class=\"na\">restart</span><span class=\"pi\">:</span> <span class=\"s\">unless-stopped</span></code></pre></div></div>",
+            "url": "http://localhost:4000/2020/07/08/self-hosted-notes",
+            
+            
+            
+            
+            "date_published": "2020-07-08T00:00:00+01:00",
+            "date_modified": "2020-07-08T00:00:00+01:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
             "id": "http://localhost:4000/2020/06/12/lan-speed-testing",
             "title": "LAN Speed Testing with iperf",
             "summary": null,
@@ -64,10 +156,10 @@
     
         {
             "id": "http://localhost:4000/2001/01/01/template",
-            "title": "Title",
+            "title": "Podgrab: self-hosted podcast downloader",
             "summary": null,
-            "content_text": "",
-            "content_html": "",
+            "content_text": "Download episodes whenever new podcast added - yesHow many episodes - 40Automatically download to disk - yesAppend episode date to file name - yesAppend episode number to file name - noDownload image - yesversion: \"2.1\"services:  podgrab:    image: akhilrex/podgrab    container_name: podgrab    environment:      - CHECK_FREQUENCY=240      - PUID=1000      - PGID=1000     # - PASSWORD=password     ## Uncomment to enable auth, username = podgrab    volumes:      - ./config:/config      - /mnt/main/media/podcasts:/assets    ports:      - 8080:8080    restart: unless-stopped",
+            "content_html": "<p>Download episodes whenever new podcast added - yes<br />How many episodes - 40<br />Automatically download to disk - yes<br />Append episode date to file name - yes<br />Append episode number to file name - no<br />Download image - yes</p><div class=\"language-yaml highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code><span class=\"na\">version</span><span class=\"pi\">:</span> <span class=\"s2\">\"</span><span class=\"s\">2.1\"</span><span class=\"na\">services</span><span class=\"pi\">:</span>  <span class=\"na\">podgrab</span><span class=\"pi\">:</span>    <span class=\"na\">image</span><span class=\"pi\">:</span> <span class=\"s\">akhilrex/podgrab</span>    <span class=\"na\">container_name</span><span class=\"pi\">:</span> <span class=\"s\">podgrab</span>    <span class=\"na\">environment</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">CHECK_FREQUENCY=240</span>      <span class=\"pi\">-</span> <span class=\"s\">PUID=1000</span>      <span class=\"pi\">-</span> <span class=\"s\">PGID=1000</span>     <span class=\"c1\"># - PASSWORD=password     ## Uncomment to enable auth, username = podgrab</span>    <span class=\"na\">volumes</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">./config:/config</span>      <span class=\"pi\">-</span> <span class=\"s\">/mnt/main/media/podcasts:/assets</span>    <span class=\"na\">ports</span><span class=\"pi\">:</span>      <span class=\"pi\">-</span> <span class=\"s\">8080:8080</span>    <span class=\"na\">restart</span><span class=\"pi\">:</span> <span class=\"s\">unless-stopped</span></code></pre></div></div>",
             "url": "http://localhost:4000/2001/01/01/template",
             
             
