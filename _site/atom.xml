@@ -4,7 +4,7 @@
  <title>Colorie</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-11-26T17:23:38+00:00</updated>
+ <updated>2021-11-26T17:40:13+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Colorie</name>
@@ -13,10 +13,268 @@
 
  
  <entry>
+   <title>Setting up a Ruby dev environment for Jekyll</title>
+   <link href="http://localhost:4000/2021/06/01/ruby-env-jekyll"/>
+   <updated>2021-06-01T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2021/06/01/ruby-env-jekyll</id>
+   <content type="html">&lt;p&gt;Download with Brew&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install ruby rbenv
+rbenv init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add to .zshrc&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;rbenv init - zsh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GEM_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;ruby &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'puts Gem.user_dir'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$GEM_HOME&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/bin&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install bundler jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new sitename
+cd myblog
+bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;localhost:4000&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Accessing my self-hosted services away from home with WireGuard</title>
+   <link href="http://localhost:4000/2021/05/08/wireguard"/>
+   <updated>2021-05-08T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2021/05/08/wireguard</id>
+   <content type="html">&lt;p&gt;https://github.com/angristan/wireguard-install&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+chmod +x wireguard-install.sh
+./wireguard-install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run the script, enter the public IP for the server and leave everything else as default. Note the port it auto assigns.&lt;/p&gt;
+
+&lt;p&gt;Script will prompt to add the client name&lt;/p&gt;
+
+&lt;p&gt;Open the port to the internet, in my case on a TP-Link Archer router it was under a section called virtual servers&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Replace a string in all filenames in a folder</title>
+   <link href="http://localhost:4000/2021/04/28/bash-replace-string"/>
+   <updated>2021-04-28T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2021/04/28/bash-replace-string</id>
+   <content type="html">&lt;p&gt;As below will replace S01 with S02 in all files in the dir that contain S01&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;file &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;S01&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/S01/S02&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to write an /etc/fstab entry</title>
+   <link href="http://localhost:4000/2021/03/05/fstab-entry"/>
+   <updated>2021-03-05T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2021/03/05/fstab-entry</id>
+   <content type="html">&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/disk/by-uuid/d6b188f9-8aaf-4a23-b7b5-0e0a054dd576 /mnt/folder ext4 defaults 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Setting up WSL to sidestep a corporate network</title>
+   <link href="http://localhost:4000/2021/03/02/wsl-coporate-network"/>
+   <updated>2021-03-02T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2021/03/02/wsl-coporate-network</id>
+   <content type="html">&lt;p&gt;WSL2 refuses to check the SSL certificates of any download locations, e.g. apt, pypi, github, vs code server, when on a corporate network&lt;/p&gt;
+
+&lt;p&gt;The only way to sidestep this as a permanent fix is to disable SSL checks on utilities that need to perform these downloads&lt;/p&gt;
+
+&lt;p&gt;In the case of VS Code server, create the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.wgetrc&lt;/code&gt; and add the following line&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;check_certificate = off
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For Apt, create the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.curlrc&lt;/code&gt; and add the following line&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;insecure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And for PyPi, create the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.config/pip/pip.conf&lt;/code&gt; and add the folloiwng line&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[global]
+trusted-host = pypi.python.org
+               pypi.org
+               files.pythonhosted.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And for GitHub, run the below config command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global http.sslverify false
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;All done. Insecure as hell, but it works!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Podgrab: self-hosted podcast downloader</title>
+   <link href="http://localhost:4000/2021/02/21/podgrab"/>
+   <updated>2021-02-21T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2021/02/21/podgrab</id>
+   <content type="html">&lt;p&gt;Download episodes whenever new podcast added - yes&lt;br /&gt;
+How many episodes - 40&lt;br /&gt;
+Automatically download to disk - yes&lt;br /&gt;
+Append episode date to file name - yes&lt;br /&gt;
+Append episode number to file name - no&lt;br /&gt;
+Download image - yes&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2.1&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;podgrab&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;akhilrex/podgrab&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;podgrab&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;CHECK_FREQUENCY=240&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PUID=1000&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PGID=1000&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;# - PASSWORD=password     ## Uncomment to enable auth, username = podgrab&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./config:/config&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/mnt/main/media/podcasts:/assets&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;8080:8080&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unless-stopped&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Torstack: automated torrenting behind a VPN</title>
+   <link href="http://localhost:4000/2021/01/17/torrent-stack"/>
+   <updated>2021-01-17T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2021/01/17/torrent-stack</id>
+   <content type="html">&lt;p&gt;Sonarr - automated TV downloading
+Radarr - automated movie downloading
+Jackett - proxy for torrent searches
+Haugene - legendary openvpn+transmission container&lt;/p&gt;
+
+&lt;p&gt;Docker compose file:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: '3.3'
+services:
+    haugene:
+        container_name: haugene
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - /home/aaron/torrents:/data
+            - ./haugene:/config
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - OPENVPN_PROVIDER=NORDVPN
+            - &quot;OPENVPN_USERNAME=EMAIL&quot;
+            - &quot;OPENVPN_PASSWORD=PASSWORD&quot;
+            - LOCAL_NETWORK=10.0.0.0/8
+        logging:
+            driver: json-file
+            options:
+                max-size: 10m
+        ports:
+            - '9091:9091'
+            - '9117:9117'
+            - '8989:8989'
+            - '7878:7878'
+        image: haugene/transmission-openvpn
+        restart: unless-stopped
+    jackett:
+        image: ghcr.io/linuxserver/jackett
+        container_name: jackett
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+        volumes:
+            - ./jackett:/config
+            - /home/aaron/torrents:/downloads
+        network_mode: service:haugene
+        depends_on:
+            - haugene
+        restart: unless-stopped
+    sonarr:
+        image: ghcr.io/linuxserver/sonarr
+        container_name: sonarr
+        environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/London
+        volumes:
+        - ./sonarr:/config
+        - /mnt/main/media/tv:/tv #optional
+        - /home/aaron/torrents:/data #optional
+        network_mode: service:haugene
+        depends_on:
+            - haugene
+        restart: unless-stopped
+    radarr:
+        image: ghcr.io/linuxserver/radarr
+        container_name: radarr
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+        volumes:
+            - ./radarr:/config
+            - /mnt/main/media/movies:/movies #optional
+            - /home/aaron/torrents:/data #optional
+        network_mode: service:haugene
+        depends_on:
+            - haugene
+        restart: unless-stopped
+networks:
+    default:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Installing 64-bit Ubuntu 20.04 on a Raspberry Pi</title>
+   <link href="http://localhost:4000/2021/01/01/ubuntu-rpi"/>
+   <updated>2021-01-01T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2021/01/01/ubuntu-rpi</id>
+   <content type="html">&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wifis:
+    wlan0:
+        dhcp4: true
+        optional: true
+        access-points:
+            &quot;SSID&quot;:
+                password: &quot;PASS&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install bluez pi-bluetooth
+
+sudo reboot nowreboot
+
+bluetoothctl
+
+discoverable on
+scan on 
+pair 00:11:22:33:44:55
+connect 00:11:22:33:44:55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Trying out Pyenv for Python version management</title>
-   <link href="http://localhost:4000/2020/12/01/pyenv"/>
-   <updated>2020-12-01T00:00:00+00:00</updated>
-   <id>http://localhost:4000/2020/12/01/pyenv</id>
+   <link href="http://localhost:4000/2020/12/13/pyenv"/>
+   <updated>2020-12-13T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2020/12/13/pyenv</id>
    <content type="html">&lt;p&gt;https://github.com/pyenv/pyenv#installation&lt;/p&gt;
 
 &lt;p&gt;https://github.com/pyenv/pyenv-installer&lt;/p&gt;
@@ -189,6 +447,31 @@ o/destination
  </entry>
  
  <entry>
+   <title>Setting up a Windows 10 VM on Proxmox</title>
+   <link href="http://localhost:4000/2020/06/14/windows-10-vm"/>
+   <updated>2020-06-14T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2020/06/14/windows-10-vm</id>
+   <content type="html">&lt;p&gt;Proxmox makes it very easy to set up Linux VMs, but to do the same for Windows 10, unfortunately you have to jump through a few hoops.&lt;/p&gt;
+
+&lt;p&gt;Firstly, procure your Windows 10 ISO. I prefer the LTSC channel, but it doesn’t have the Windows Subsystem for Linux version 2 yet, which is a damn shame. LTSC does away with all the commercial nonsense that Microsoft have added to the Home and Pro versions of Windows 10, like Candy Crush for example. If you want to be able to use WSL2, you will have to obtain an ISO for Windows 10 Pro.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve uploaded the ISO to Proxmox, you can begin creating a new VM.&lt;/p&gt;
+
+&lt;p&gt;In the first screen, name your VM and give it a unique numerical ID as usual. In the OS tab, select the Windows ISO that you uploaded and change the guest OS type to ‘Windows 10/2016/2019’&lt;/p&gt;
+
+&lt;p&gt;Moving on to the hard disk tab, change the bus to SCSI and set VirtIO SCSI as the controller. For the cache, Proxmox recommends using ‘write back’ for best performance, but the default, no cache, is safer, with the trade-off that it is slower.&lt;/p&gt;
+
+&lt;p&gt;No changes needed in the CPU tab, though I would recommend assigning at least 2 virtual CPUs to Windows. Same in the memory tab, just assign your memory size as usual. Lastly, select ‘VirtIO (paravirtualized)’ as the network device. Confirm the setup of the VM and make sure that ‘start after creation’ is unticked.&lt;/p&gt;
+
+&lt;p&gt;Before booting up the VM, you will need to add another disk to the VM that contains the VirtIO drivers needed for Windows to recognise the virtual drives, memory and network device. I usually grab the disk image containing these drivers from the GitHub page here: https://github.com/virtio-win. Upload this ISO to your Proxmox server, locate the Windows VM you just created and add the ISO as another CD/DVD drive just as the Windows 10 ISO is.&lt;/p&gt;
+
+&lt;p&gt;Boot up the Windows VM and open the noVNC console window. If you’ve ever installed Windows 10 before you will be familiar with this particular shade of purple. Click through to the page where you need to select the drive to install Windows 10 on, and click ‘load driver’. Unfortunately you are going to have to do this one driver at a time. Firstly, the hard disk, browse to the VirtIO ISO and navigate to the folder vioscsi/w10/amd64 (assuming you are installing on an x86 box) and click confirm. Windows should have recognised your ‘Red Hat VirtIO SCSI passthrough controller’. The virtual hard drive should now appear, but don’t install on it yet. Next, for the network device, navigate to NetKVM/w10/amd64 and click confirm as before. Lastly, for the memory device, navigate to Balloon/w10/amd64 and proceed.&lt;/p&gt;
+
+&lt;p&gt;Now all the relevant drivers have been installed you can go ahead with the install to the VM’s virtual hard drive. Everything else from this point is the usual process of doing a fresh Windows 10 install, including opting out of all the telemetry and other rubbish!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>LAN Speed Testing with iperf</title>
    <link href="http://localhost:4000/2020/06/12/lan-speed-testing"/>
    <updated>2020-06-12T00:00:00+01:00</updated>
@@ -214,58 +497,18 @@ o/destination
  </entry>
  
  <entry>
-   <title>Setting up a Windows 10 VM on Proxmox</title>
-   <link href="http://localhost:4000/2020/06/01/windows-10-vm"/>
-   <updated>2020-06-01T00:00:00+01:00</updated>
-   <id>http://localhost:4000/2020/06/01/windows-10-vm</id>
-   <content type="html">&lt;p&gt;Proxmox makes it very easy to set up Linux VMs, but to do the same for Windows 10, unfortunately you have to jump through a few hoops.&lt;/p&gt;
+   <title>Setting up a Proxmox VM server</title>
+   <link href="http://localhost:4000/2020/05/09/proxmox-setup"/>
+   <updated>2020-05-09T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2020/05/09/proxmox-setup</id>
+   <content type="html">&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/Weilbyte/PVEDiscordDark/master/PVEDiscordDark.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Firstly, procure your Windows 10 ISO. I prefer the LTSC channel, but it doesn’t have the Windows Subsystem for Linux version 2 yet, which is a damn shame. LTSC does away with all the commercial nonsense that Microsoft have added to the Home and Pro versions of Windows 10, like Candy Crush for example. If you want to be able to use WSL2, you will have to obtain an ISO for Windows 10 Pro.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash PVEDiscordDark.sh &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Once you’ve uploaded the ISO to Proxmox, you can begin creating a new VM.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;.backup &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;s/res === null || res === undefined || &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\!&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;res || res&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\t\t\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.data.status.toLowerCase() &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\!&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;== 'active'/false/g&quot;&lt;/span&gt; /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl restart pveproxy.service
 
-&lt;p&gt;In the first screen, name your VM and give it a unique numerical ID as usual. In the OS tab, select the Windows ISO that you uploaded and change the guest OS type to ‘Windows 10/2016/2019’&lt;/p&gt;
-
-&lt;p&gt;Moving on to the hard disk tab, change the bus to SCSI and set VirtIO SCSI as the controller. For the cache, Proxmox recommends using ‘write back’ for best performance, but the default, no cache, is safer, with the trade-off that it is slower.&lt;/p&gt;
-
-&lt;p&gt;No changes needed in the CPU tab, though I would recommend assigning at least 2 virtual CPUs to Windows. Same in the memory tab, just assign your memory size as usual. Lastly, select ‘VirtIO (paravirtualized)’ as the network device. Confirm the setup of the VM and make sure that ‘start after creation’ is unticked.&lt;/p&gt;
-
-&lt;p&gt;Before booting up the VM, you will need to add another disk to the VM that contains the VirtIO drivers needed for Windows to recognise the virtual drives, memory and network device. I usually grab the disk image containing these drivers from the GitHub page here: https://github.com/virtio-win. Upload this ISO to your Proxmox server, locate the Windows VM you just created and add the ISO as another CD/DVD drive just as the Windows 10 ISO is.&lt;/p&gt;
-
-&lt;p&gt;Boot up the Windows VM and open the noVNC console window. If you’ve ever installed Windows 10 before you will be familiar with this particular shade of purple. Click through to the page where you need to select the drive to install Windows 10 on, and click ‘load driver’. Unfortunately you are going to have to do this one driver at a time. Firstly, the hard disk, browse to the VirtIO ISO and navigate to the folder vioscsi/w10/amd64 (assuming you are installing on an x86 box) and click confirm. Windows should have recognised your ‘Red Hat VirtIO SCSI passthrough controller’. The virtual hard drive should now appear, but don’t install on it yet. Next, for the network device, navigate to NetKVM/w10/amd64 and click confirm as before. Lastly, for the memory device, navigate to Balloon/w10/amd64 and proceed.&lt;/p&gt;
-
-&lt;p&gt;Now all the relevant drivers have been installed you can go ahead with the install to the VM’s virtual hard drive. Everything else from this point is the usual process of doing a fresh Windows 10 install, including opting out of all the telemetry and other rubbish!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Podgrab: self-hosted podcast downloader</title>
-   <link href="http://localhost:4000/2001/01/01/template"/>
-   <updated>2001-01-01T00:00:00+00:00</updated>
-   <id>http://localhost:4000/2001/01/01/template</id>
-   <content type="html">&lt;p&gt;Download episodes whenever new podcast added - yes&lt;br /&gt;
-How many episodes - 40&lt;br /&gt;
-Automatically download to disk - yes&lt;br /&gt;
-Append episode date to file name - yes&lt;br /&gt;
-Append episode number to file name - no&lt;br /&gt;
-Download image - yes&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2.1&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;podgrab&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;akhilrex/podgrab&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;podgrab&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;CHECK_FREQUENCY=240&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PUID=1000&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;PGID=1000&lt;/span&gt;
-     &lt;span class=&quot;c1&quot;&gt;# - PASSWORD=password     ## Uncomment to enable auth, username = podgrab&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./config:/config&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/mnt/main/media/podcasts:/assets&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;8080:8080&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unless-stopped&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </content>
  </entry>
