@@ -17,6 +17,29 @@
 "items": [
     
         {
+            "id": "http://localhost:4000/2020/06/12/lan-speed-testing",
+            "title": "LAN Speed Testing with iperf",
+            "summary": null,
+            "content_text": "iperf is a command line tool for *nix machines that can set up a server-client connection over the LAN to transfer as much data as possible in ten seconds flat, and thus measure the speed of the connection.Using this tool I found out that my 5GHz wifi band (370Mbps) is three times faster than the TP-Link powerline tool (93Mbps) I had been using previously, and a massive 23x faster than the 2.4GHz band (16Mbps)!I think this is in large part due to the TP-Link Archer C2300 router I bought when we moved in, it was only £90 and is a huge upgrade on whatever your ISP gave you.```bashlinuxsudo apt install iperfmacosbrew install iperfon serveriperf -son clientiperf -c 10.0.0.x -p port",
+            "content_html": "<p><code class=\"language-plaintext highlighter-rouge\">iperf</code> is a command line tool for *nix machines that can set up a server-client connection over the LAN to transfer as much data as possible in ten seconds flat, and thus measure the speed of the connection.</p><p>Using this tool I found out that my 5GHz wifi band (370Mbps) is three times faster than the TP-Link powerline tool (93Mbps) I had been using previously, and a massive 23x faster than the 2.4GHz band (16Mbps)!</p><p>I think this is in large part due to the TP-Link Archer C2300 router I bought when we moved in, it was only £90 and is a huge upgrade on whatever your ISP gave you.</p><p>```bash</p><h1 id=\"linux\">linux</h1><p>sudo apt install iperf</p><h1 id=\"macos\">macos</h1><p>brew install iperf</p><h1 id=\"on-server\">on server</h1><p>iperf -s</p><h1 id=\"on-client\">on client</h1><p>iperf -c 10.0.0.x -p port</p>",
+            "url": "http://localhost:4000/2020/06/12/lan-speed-testing",
+            
+            
+            
+            
+            "date_published": "2020-06-12T00:00:00+01:00",
+            "date_modified": "2020-06-12T00:00:00+01:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
             "id": "http://localhost:4000/2020/06/01/windows-10-vm",
             "title": "Setting up a Windows 10 VM on Proxmox",
             "summary": null,
@@ -27,9 +50,31 @@
             
             
             
-            
             "date_published": "2020-06-01T00:00:00+01:00",
             "date_modified": "2020-06-01T00:00:00+01:00",
+            
+                "author":  {
+                "name": "Colorie",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        },
+    
+        {
+            "id": "http://localhost:4000/2001/01/01/template",
+            "title": "Title",
+            "summary": null,
+            "content_text": "",
+            "content_html": "",
+            "url": "http://localhost:4000/2001/01/01/template",
+            
+            
+            
+            
+            "date_published": "2001-01-01T00:00:00+00:00",
+            "date_modified": "2001-01-01T00:00:00+00:00",
             
                 "author":  {
                 "name": "Colorie",

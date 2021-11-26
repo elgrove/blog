@@ -4,13 +4,38 @@
  <title>Colorie</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-11-26T16:56:24+00:00</updated>
+ <updated>2021-11-26T17:15:06+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Colorie</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>LAN Speed Testing with iperf</title>
+   <link href="http://localhost:4000/2020/06/12/lan-speed-testing"/>
+   <updated>2020-06-12T00:00:00+01:00</updated>
+   <id>http://localhost:4000/2020/06/12/lan-speed-testing</id>
+   <content type="html">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iperf&lt;/code&gt; is a command line tool for *nix machines that can set up a server-client connection over the LAN to transfer as much data as possible in ten seconds flat, and thus measure the speed of the connection.&lt;/p&gt;
+
+&lt;p&gt;Using this tool I found out that my 5GHz wifi band (370Mbps) is three times faster than the TP-Link powerline tool (93Mbps) I had been using previously, and a massive 23x faster than the 2.4GHz band (16Mbps)!&lt;/p&gt;
+
+&lt;p&gt;I think this is in large part due to the TP-Link Archer C2300 router I bought when we moved in, it was only £90 and is a huge upgrade on whatever your ISP gave you.&lt;/p&gt;
+
+&lt;p&gt;```bash&lt;/p&gt;
+&lt;h1 id=&quot;linux&quot;&gt;linux&lt;/h1&gt;
+&lt;p&gt;sudo apt install iperf&lt;/p&gt;
+&lt;h1 id=&quot;macos&quot;&gt;macos&lt;/h1&gt;
+&lt;p&gt;brew install iperf&lt;/p&gt;
+
+&lt;h1 id=&quot;on-server&quot;&gt;on server&lt;/h1&gt;
+&lt;p&gt;iperf -s&lt;/p&gt;
+
+&lt;h1 id=&quot;on-client&quot;&gt;on client&lt;/h1&gt;
+&lt;p&gt;iperf -c 10.0.0.x -p port&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Setting up a Windows 10 VM on Proxmox</title>
@@ -34,6 +59,15 @@
 &lt;p&gt;Boot up the Windows VM and open the noVNC console window. If you’ve ever installed Windows 10 before you will be familiar with this particular shade of purple. Click through to the page where you need to select the drive to install Windows 10 on, and click ‘load driver’. Unfortunately you are going to have to do this one driver at a time. Firstly, the hard disk, browse to the VirtIO ISO and navigate to the folder vioscsi/w10/amd64 (assuming you are installing on an x86 box) and click confirm. Windows should have recognised your ‘Red Hat VirtIO SCSI passthrough controller’. The virtual hard drive should now appear, but don’t install on it yet. Next, for the network device, navigate to NetKVM/w10/amd64 and click confirm as before. Lastly, for the memory device, navigate to Balloon/w10/amd64 and proceed.&lt;/p&gt;
 
 &lt;p&gt;Now all the relevant drivers have been installed you can go ahead with the install to the VM’s virtual hard drive. Everything else from this point is the usual process of doing a fresh Windows 10 install, including opting out of all the telemetry and other rubbish!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Title</title>
+   <link href="http://localhost:4000/2001/01/01/template"/>
+   <updated>2001-01-01T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2001/01/01/template</id>
+   <content type="html">
 </content>
  </entry>
  

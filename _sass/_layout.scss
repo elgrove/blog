@@ -119,11 +119,14 @@ header, main {
 }
 
 .card .meta {
-   padding: 2rem;
+   padding-right: 2rem;
+   padding-left: 2rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
    display: flex;
   
   flex: 1;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
