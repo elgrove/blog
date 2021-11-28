@@ -20,7 +20,7 @@ services:
         cap_add:
             - NET_ADMIN
         volumes:
-            - /home/aaron/torrents:/data
+            - /home/user/torrents:/data
             - ./haugene:/config
         environment:
             - PUID=1000
@@ -49,7 +49,7 @@ services:
             - TZ=Europe/London
         volumes:
             - ./jackett:/config
-            - /home/aaron/torrents:/downloads
+            - /home/user/torrents:/downloads
         network_mode: service:haugene
         depends_on:
             - haugene
@@ -64,7 +64,7 @@ services:
         volumes:
         - ./sonarr:/config
         - /mnt/main/media/tv:/tv #optional
-        - /home/aaron/torrents:/data #optional
+        - /home/user/torrents:/data #optional
         network_mode: service:haugene
         depends_on:
             - haugene
@@ -79,7 +79,7 @@ services:
         volumes:
             - ./radarr:/config
             - /mnt/main/media/movies:/movies #optional
-            - /home/aaron/torrents:/data #optional
+            - /home/user/torrents:/data #optional
         network_mode: service:haugene
         depends_on:
             - haugene
