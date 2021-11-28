@@ -1,33 +1,27 @@
-site: Colorie
+site: Blog
 url: 
-author: Colorie
+author: Elgrove
 author:
-  name: Colorie
+  name: Elgrove
   email: 
-  url: 
+  url: github/elgrove
   avatar: 
-title: Colorie
-description: Colorie - Single column blog and portfolio Jekyll theme 
+title: Blog
+description: Blog made with colorie theme + some changes
 logo: 
 image: 
-twitter: ronaldsvilcins  
+twitter:   
 twitter:
-  username: ronaldsvilcins
-  creator: ronaldsvilcins
-  card: summary
+  username: 
+  creator: 
+  card: 
 social:
-  name: Ronalds Vilcins
+  name: 
   links:
-    - https://twitter.com/#
-    - https://www.dribbble.com/#
-    - https://github.com/#
-    - https://codepen.io/#
+
   
 permalink: pretty
 
-# disqus:
-#   name: "your disqus username" # required
-#   noscript: "Please enable JavaScript to view the comments powered by Disqus." # optional
 
 baseurl:             ""
 
