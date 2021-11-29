@@ -81,3 +81,6 @@ defaults:
       path: "assets/images"
     values:
       image: true
+
+paginate: 10
+paginate_path: "/blog/page:num/"
