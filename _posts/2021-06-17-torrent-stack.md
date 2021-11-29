@@ -5,12 +5,12 @@ description:
 summary: 
 ---
 
-Sonarr - automated TV downloading
-Radarr - automated movie downloading
-Jackett - proxy for torrent searches
-Haugene - legendary openvpn+transmission container
+Sonarr - automated TV downloading  
+Radarr - automated movie downloading  
+Jackett - proxy for torrent searches  
+Haugene - legendary openvpn+transmission container  
 
-Docker compose file:
+Docker compose file:  
 
 ```
 version: '3.3'
