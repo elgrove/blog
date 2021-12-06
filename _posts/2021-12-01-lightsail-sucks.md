@@ -17,4 +17,6 @@ So why does Lightsail suck? Well, let me answer that with another question. What
 
 And here's the rub - Lightsail isn't reliable!
 
-As I write this, users trying to reach [nflfunindex.com]() are being greeted with a Cloudflare error page with a 522 error code. I try to SSH into the box and the operation times out. I try to open Lightsail's own in-browser SSH tool and it returns a completely blank terminal with no cursor. According to AWS, the box is running, the CPU usage has consistently been in the 'sustainable zone' (side note: that's a zone that shouldn't even exist - I either have a vCPU to use or I don't). According to AWS, everything is fine.
+As I write this, users trying to reach [nflfunindex.com]() are being greeted with a Cloudflare error page with a 522 error code. I try to SSH into the box and the operation times out. I try to open Lightsail's own in-browser SSH tool and it returns a completely blank terminal with no cursor. According to AWS, the box is running, the CPU usage has consistently been in the 'sustainable zone' (side note: that's a zone that shouldn't even exist. Either I have a vCPU to use or I don't). According to AWS, everything is fine.
+
+Thanks but no thanks, Jeff and Andy. I'll be sticking with Linode for my VPS needs from now on.
