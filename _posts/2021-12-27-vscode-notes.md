@@ -7,6 +7,8 @@ summary:
 
 ## VS Code Server docker container from linuxserver.io
 
+
+
 ```yaml
   code-server:
     image: lscr.io/linuxserver/code-server
@@ -42,3 +44,4 @@ Command pallette command Run on Save: enable/disable is handy
     }
 ```
 
+*
