@@ -44,4 +44,3 @@ Command pallette command Run on Save: enable/disable is handy
     }
 ```
 
-*
